@@ -2,7 +2,7 @@ import type { GatsbyConfig } from "gatsby"
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `stinkywebsite`,
+    title: `Threads of Inheritence`,
     siteUrl: `https://janellevb.github.io/msn-memories`,
   },
   pathPrefix: `/msn-memories`,

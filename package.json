@@ -14,7 +14,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "deploy": "gatsby build && gh-pages -d public -b gh-pages"
+    "deploy": "gatsby build --prefix-paths && GIT_SSH_COMMAND=\"ssh -i ~/.ssh/github-janelle -o IdentitiesOnly=yes\" gh-pages -d public"
   },
   "dependencies": {
     "gatsby": "^5.13.3",
