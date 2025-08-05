@@ -14,7 +14,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "deploy": "gatsby build && gh-pages -d public -b stinkywebsite"
+    "deploy": "gatsby build && gh-pages -d public -b gh-pages"
   },
   "dependencies": {
     "gatsby": "^5.13.3",
