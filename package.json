@@ -14,7 +14,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "deploy": "gatsby build --prefix-paths && GIT_SSH_COMMAND=\"ssh -i ~/.ssh/github-janelle -o IdentitiesOnly=yes\" gh-pages -d public"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b gh-pages"
   },
   "dependencies": {
     "gatsby": "^5.13.3",
@@ -30,5 +30,15 @@
     "gh-pages": "^6.1.1",
     "sass": "^1.71.1",
     "typescript": "^5.3.3"
+  },
+  "overrides": {
+    "serialize-javascript": "7.0.5",
+    "file-type": "21.3.4",
+    "immutable": "3.8.3",
+    "postcss": "8.5.8",
+    "tmp": "0.2.5",
+    "cookie": "1.1.1",
+    "webpack": "5.105.4",
+    "@parcel/reporter-dev-server": "2.16.4"
   }
 }

@@ -35,7 +35,7 @@ const Login = ({onClick} : ILoginProps) => {
           </div>
           <div className="Login__wrapper">
             <div style={{color: '#10117f', marginBottom: '2px'}} className="Login__text">
-              Password1: 
+              Password:
             </div>
             <div className="Login__passwordbox Login__input">
               <input type="text" className="Login__input"></input>

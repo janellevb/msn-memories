@@ -22,6 +22,7 @@ import mountain from '../images/mountain.png'
 import gift from '../images/gift.png'
 import nudge from '../images/nudge.png'
 import paint from '../images/paint.png'
+import xpIcon from '../images/winxp-semwiz.png'
 
 
 const chatContent: string[] = [
@@ -75,10 +76,6 @@ const chatContent: string[] = [
   'Google Translate says: Diseño',
 
   'Janelle says: The lady beamed',
-  'I thanked her, but my abuela looked at me curiously',
-  'She asked me to translate what I had just said in Spanish for her',
-  'So she could understand what I said I wanted to pursue',
-  'I sat down and pulled my phone out to put the word through Google Translate',
   'Reading under her breath',
   'My <i>abuela</i> read the word slowly',
   'She pointed with a finger',
@@ -160,6 +157,21 @@ const Chat = () => {
   }
 
   const [items, setItems] = useState<string[]>([]);
+  const [showDialog, setShowDialog] = useState(false);
+
+  const handleSendAttempt = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    setShowDialog(true);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      setShowDialog(true);
+    }
+  };
+
+  const closeDialog = () => setShowDialog(false);
   const divRef = useRef<HTMLDivElement>(null);
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(true);
 
@@ -208,6 +220,7 @@ const Chat = () => {
   });
 
   return (
+    <>
     <div className="Chat">
       <div className="Chat__container">
         <div className="Chat__toolbar">
@@ -329,10 +342,9 @@ const Chat = () => {
 
           </div>
           <div className="Chat__typearea">
-            <textarea>
-            </textarea>
+            <textarea onKeyDown={handleKeyDown} placeholder="Type a message..." />
             <div className="Chat__buttons">
-              <button>Send</button>
+              <button onClick={handleSendAttempt}>Send</button>
             </div>
           </div>
           <div className="Chat__tabs">
@@ -350,6 +362,31 @@ const Chat = () => {
         </div>
       </div>
     </div>
+    {showDialog && (
+      <>
+        <div style={{position: 'fixed', left: 0, top: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.3)', zIndex: 9998}} onClick={closeDialog} />
+        <div className="window" style={{position: 'fixed', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', zIndex: 9999, width: '320px'}}>
+          <div className="title-bar">
+            <div className="title-bar-text">
+              Warning
+            </div>
+            <div className="title-bar-controls">
+              <button aria-label="Close" onClick={closeDialog}></button>
+            </div>
+          </div>
+          <div className="window-body">
+            <div style={{display: 'flex', alignItems: 'center'}}>
+              <img src={xpIcon} alt="Windows XP icon" style={{width: "32px", height: "32px", marginRight: "8px"}}/>
+              <p style={{margin: 0}}>You are not part of this conversation!</p>
+            </div>
+            <section className="field-row" style={{justifyContent: 'flex-end', marginTop: '12px'}}>
+              <button onClick={closeDialog}>OK</button>
+            </section>
+          </div>
+        </div>
+      </>
+    )}
+    </>
   )
 }
 

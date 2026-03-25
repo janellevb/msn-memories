@@ -203,4 +203,66 @@
     justify-content: center;
     background: #EDF2F8;
   }
+
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.25);
+    z-index: 9999;
+
+    .window.Chat__warningWindow {
+      border: 3px solid #f0ad4e; /* warning border */
+    }
+
+    .title-bar-controls > button[aria-label="Close"] {
+      background: #d9534f;
+      color: #fff;
+      border: none;
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 3px;
+      font-weight: bold;
+      line-height: 1;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
+      position: relative;
+      padding: 0;
+    }
+    .title-bar-controls > button[aria-label="Close"]::after {
+      content: '×';
+      font-size: 14px;
+      line-height: 1;
+      color: #fff;
+      display: inline-block;
+    }
+
+    .Chat__warningContent {
+      display: flex;
+      align-items: center;
+    }
+
+    .Chat__warningIcon {
+      background: #f7e38a;
+      color: #856404;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      font-size: 20px;
+      margin-right: 12px;
+      border: 1px solid #f0ad4e;
+    }
+
+    .Chat__warningText {
+      font-size: 14px;
+      color: #333;
+    }
+  }
 }
