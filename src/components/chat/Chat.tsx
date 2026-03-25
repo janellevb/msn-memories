@@ -272,7 +272,7 @@ const Chat = () => {
           <div className="Chat__subject">
             To:&nbsp;
             <strong>
-              {`you (me2you)`}
+              {`you (user)`}
             </strong>
           </div>
           <div className="Chat__history" ref={divRef}>
@@ -377,7 +377,7 @@ const Chat = () => {
           <div className="window-body">
             <div style={{display: 'flex', alignItems: 'center'}}>
               <img src={xpIcon} alt="Windows XP icon" style={{width: "32px", height: "32px", marginRight: "8px"}}/>
-              <p style={{margin: 0}}>You are not part of this conversation!</p>
+              <p style={{margin: 0}}>You are not a part of this conversation.</p>
             </div>
             <section className="field-row" style={{justifyContent: 'flex-end', marginTop: '12px'}}>
               <button onClick={closeDialog}>OK</button>
